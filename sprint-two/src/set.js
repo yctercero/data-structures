@@ -7,13 +7,23 @@ var Set = function() {
 var setPrototype = {};
 
 setPrototype.add = function(item) {
-  set._storage = undefined;
+  this._storage += " " + item;
 };
 
 setPrototype.contains = function(item) {
+  if( this._storage.indexOf(item) < 0 ){
+    return false;
+  }else{
+    return true;
+  }
 };
 
 setPrototype.remove = function(item) {
+  var index = this._storage.indexOf(item);
+  var slice1 = this._storage.slice(0, index - 1);
+  var slice2 = this._storage.slice(index + item.length);
+
+  this._storage = slice1 + slice2;
 };
 
 /*
