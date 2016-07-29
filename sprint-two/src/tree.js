@@ -1,9 +1,11 @@
 var Tree = function(value) {
+
   var newTree = {};
   newTree.value = value;
+  newTree.children = [];
+  newTree.found = false;
 
-  // your code here
-  newTree.children = null;  // fix me
+  _.extend(newTree, treeMethods);
 
   return newTree;
 };
@@ -11,11 +13,21 @@ var Tree = function(value) {
 var treeMethods = {};
 
 treeMethods.addChild = function(value) {
-  // your code here
-  newTree.children = null;  // fix me
+  var child = Tree(value);
+  this.children.push(child);
 };
 
 treeMethods.contains = function(target) {
+
+  if(this.value === target){
+    this.found = true;
+  }
+
+  for (var i = 0; i < this.children.length; i++) {
+    return this.children[i].contains(target);
+  }
+
+  return this.found;
 };
 
 
