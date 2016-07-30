@@ -18,15 +18,12 @@ treeMethods.addChild = function(value) {
 };
 
 treeMethods.contains = function(target) {
-
   if(this.value === target){
     this.found = true;
   }
-
   for (var i = 0; i < this.children.length; i++) {
     return this.children[i].contains(target);
   }
-
   return this.found;
 };
 
@@ -34,4 +31,8 @@ treeMethods.contains = function(target) {
 
 /*
  * Complexity: What is the time complexity of the above functions?
+
+AddChild: O(1)
+Contains: O(n)
+
  */

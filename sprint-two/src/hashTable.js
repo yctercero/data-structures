@@ -8,7 +8,6 @@ var HashTable = function() {
 
 HashTable.prototype.insert = function(k, v) {
   var index = getIndexBelowMaxForKey(k, this._limit);
-
   var bucket = this._storage.get(index);
 
   if (bucket === undefined) {
@@ -16,9 +15,7 @@ HashTable.prototype.insert = function(k, v) {
     bucket.push([k,v]);
 
   } else {
-
       for (var i = 0; i < bucket.length; i++) {
-
         if (bucket[i][0] === k) {
           bucket[i][1] = v;
         } else if(bucket[i][0] !== k && i === bucket.length - 1){
@@ -64,6 +61,12 @@ HashTable.prototype.remove = function(k) {
 
 /*
  * Complexity: What is the time complexity of the above functions?
+  As currently written:
+    insert: O(n)
+    retrieve: O(n)
+    remove: O(n)
+
+  If we add the ability to resize, all will be O(1).
  */
 
 

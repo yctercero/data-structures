@@ -48,7 +48,6 @@ Graph.prototype.removeEdge = function(fromNode, toNode) {
   }
 
   this.edges.splice(index, 1);
-  console.log(this.edges);
 };
 
 // Pass in a callback which will be executed on each node of the graph.
@@ -60,6 +59,16 @@ Graph.prototype.forEachNode = function(cb) {
 
 /*
  * Complexity: What is the time complexity of the above functions?
+
+ Add node: O(1)
+ Contains: O(n)
+ Remove: O(n)
+ HasEdge: O(n)
+ AddEdge: O(1)
+ RemoveEdge: O(n)
+ ForEachNode: O(n)
+
+
  */
 
 
