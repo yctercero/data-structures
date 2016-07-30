@@ -24,4 +24,34 @@ describe('set', function() {
     expect(set.contains('Mel Gibson')).to.equal(false);
   });
 
+  it('should be able to add numbers as well as strings', function() {
+    set.add(4);
+    expect(set.contains(4)).to.equal(true);
+  });
+
+  it('should be able to add arrays as inputs', function() {
+    set.add([1,2,3]);
+    expect(set.contains([1,2,3])).to.equal(true);
+  });
+
+  it('should be able to add objects as inputs', function() {
+    set.add({1 : "a"});
+    expect(set.contains({1 : "a"})).to.equal(true);
+  });
+
+  it('should be able to remove arrays as inputs', function() {
+    set.add("Hello");
+    set.add([2,4,6]);
+    set.remove([2,4,6]);
+    set.add("Hi")
+    expect(set._storage).to.equal('"Hello""Hi"');
+  });
+
+  it('should be able to remove objects as inputs', function() {
+    set.add("Hello");
+    set.add({2 : "b"});
+    set.add("Hi")
+    set.remove({2 : "b"});
+    expect(set._storage).to.equal('"Hello""Hi"');
+  });
 });
