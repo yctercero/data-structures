@@ -30,6 +30,7 @@ BinarySearchTree.prototype.insert = function(value){
   test(childTree, this);
 };
 
+
 BinarySearchTree.prototype.contains = function(target){
 
   if( this.value === target ){
@@ -65,5 +66,11 @@ BinarySearchTree.prototype.depthFirstLog = function(cb){
 
 /*
  * Complexity: What is the time complexity of the above functions?
-//  */
+  For insert and contains:
+  In most cases it will be O(log(n)).
+
+  In the worst case scenario, where each node has only one child, it will act like a linked-list and be O(n).
+
+  For depthFirstLog: O(n)
+*/
 
